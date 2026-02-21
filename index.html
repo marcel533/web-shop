@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diamond8sniper | Digital Architecture</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+
+    <header class="main-header">
+        <h1 class="logo">diamond8sniper</h1>
+        <p class="subtitle">PREMIUM DIGITAL ARCHITECTURE & NEXT-GEN DESIGN</p>
+    </header>
+
+    <main class="container">
+        
+        <!-- ══ SEITEN (für Footer-Navigation) ══ -->
+
+        <!-- HOME (Standard-Ansicht) -->
+        <div id="page-home" class="page active">
+
+            <section class="pricing-section">
+                <h2 class="section-title"> Webseiten Preise & Pakete</h2>
+                <p class="section-description">Wähle die passende Architektur für dein digitales Vorhaben.</p>
+                
+                <div class="pricing-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Basic HTML</h3>
+                            <div class="price-tag">15€</div>
+                        </div>
+                        <ul class="features">
+                            <li><span>✔</span> Statische Single-Page Architektur</li>
+                            <li><span>✔</span> Optimierte Informations-Hierarchie</li>
+                            <li><span>✔</span> W3C-Konformer Clean Code</li>
+                        </ul>
+                        <button onclick="openRequest('Basic')" class="btn">PROJEKT STARTEN</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Standard Web</h3>
+                            <div class="price-tag">30€</div>
+                        </div>
+                        <ul class="features">
+                            <li><span>✔</span> Exklusives UI/UX Design</li>
+                            <li><span>✔</span> Full Asset Integration (Bilder, Icons)</li>
+                            <li><span>✔</span> Adaptive Responsive Engine</li>
+                        </ul>
+                        <button onclick="openRequest('Standard')" class="btn">ANFRAGE</button>
+                    </div>
+
+                    <div class="card premium">
+                        <div class="card-header">
+                            <span class="badge-top">EMPFEHLUNG</span>
+                            <h3>Pro Web</h3>
+                            <div class="price-tag">50€</div>
+                        </div>
+                        <ul class="features">
+                            <li><span>✔</span> Next-Gen Web-Animationen</li>
+                            <li><span>✔</span> Mobile-First Performance-Optimierung</li>
+                            <li><span>✔</span> Strategische SEO Foundation</li>
+                        </ul>
+                        <button onclick="openRequest('Pro')" class="btn btn-premium">JETZT BUCHEN</button>
+                    </div>
+
+                    <div class="card premium">
+                        <div class="card-header">
+                            <h3>Premium Web</h3>
+                            <div class="price-tag">80€</div>
+                        </div>
+                        <ul class="features">
+                            <li><span>✔</span> High-End UX/UI Framework</li>
+                            <li><span>✔</span> Kuratierte Premium Assets</li>
+                            <li><span>✔</span> Core Web Vitals Maximierung</li>
+                        </ul>
+                        <button onclick="openRequest('Premium')" class="btn btn-premium">JETZT BUCHEN</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Ultimate</h3>
+                            <div class="price-tag">180€</div>
+                        </div>
+                        <ul class="features">
+                            <li><span>✔</span> Skalierbare Backend-Architektur</li>
+                            <li><span>✔</span> Komplexe dynamische Formularsysteme</li>
+                            <li><span>✔</span> Full Stack Deployment</li>
+                        </ul>
+                        <button onclick="openRequest('Ultimate')" class="btn">SYSTEM BAUEN</button>
+                    </div>
+
+                    <div class="card custom-dashed">
+                        <div class="card-header">
+                            <h3>Custom</h3>
+                            <div class="price-tag">$$$</div>
+                        </div>
+                        <ul class="features">
+                            <li><span>✔</span> Bespoke Solutions (Maßarbeit)</li>
+                            <li><span>✔</span> Dedizierter VIP-Prioritäts-Support</li>
+                            <li><span>✔</span> Inklusive Strategieberatung</li>
+                        </ul>
+                        <button onclick="openRequest('Custom')" class="btn btn-outline">KONTAKT AUFNEHMEN</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pricing-section">
+                <h2 class="section-title">Discord Server Pakete</h2>
+                <p class="section-description">Professioneller Discord-Aufbau – sauber, strukturiert, skalierbar.</p>
+
+                <div class="pricing-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Starter Server</h3>
+                            <div class="price-tag">5€</div>
+                        </div>
+                        <ul class="features">
+                            <li><span>✔</span> Basis-Serverstruktur</li>
+                            <li><span>✔</span> Grundrollen & Rechte</li>
+                            <li><span>✔</span> Serverbeschreibung</li>
+                            <li><span>✔</span> Bots nach Wunsch</li>
+                        </ul>
+                        <button onclick="openRequest('Starter Server')" class="btn">SERVER STARTEN</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Community Server</h3>
+                            <div class="price-tag">10€</div>
+                        </div>
+                        <ul class="features">
+                            <li><span>✔</span> Erweiterte Kanalstruktur</li>
+                            <li><span>✔</span> Reaktionsrollen</li>
+                            <li><span>✔</span> Willkommenssystem</li>
+                            <li><span>✔</span> Bots nach Wunsch</li>
+                        </ul>
+                        <button onclick="openRequest('Community Server')" class="btn">ANFRAGE</button>
+                    </div>
+
+                    <div class="card premium">
+                        <div class="card-header">
+                            <span class="badge-top">EMPFEHLUNG</span>
+                            <h3>Creator Server</h3>
+                            <div class="price-tag">15€</div>
+                        </div>
+                        <ul class="features">
+                            <li><span>✔</span> Individuelle Struktur</li>
+                            <li><span>✔</span> Custom Rollen & Farben</li>
+                            <li><span>✔</span> Regel- & Info-System</li>
+                            <li><span>✔</span> Bots nach Wunsch</li>
+                        </ul>
+                        <button onclick="openRequest('Creator Server')" class="btn btn-premium">JETZT BUCHEN</button>
+                    </div>
+
+                    <div class="card premium">
+                        <div class="card-header">
+                            <h3>Business Server</h3>
+                            <div class="price-tag">20€</div>
+                        </div>
+                        <ul class="features">
+                            <li><span>✔</span> Öffentlich / Intern getrennt</li>
+                            <li><span>✔</span> Team- & Staff-Struktur</li>
+                            <li><span>✔</span> Sicherheits-System</li>
+                            <li><span>✔</span> Bots nach Wunsch</li>
+                        </ul>
+                        <button onclick="openRequest('Business Server')" class="btn btn-premium">JETZT BUCHEN</button>
+                    </div>
+
+                    <div class="card custom-dashed">
+                        <div class="card-header">
+                            <h3>Premium Custom</h3>
+                            <div class="price-tag">$$$</div>
+                        </div>
+                        <ul class="features">
+                            <li><span>✔</span> Komplett individueller Aufbau</li>
+                            <li><span>✔</span> Planung nach Ziel</li>
+                            <li><span>✔</span> Feintuning aller Rechte</li>
+                            <li><span>✔</span> Bots nach Wunsch</li>
+                        </ul>
+                        <button onclick="openRequest('Premium Custom')" class="btn btn-outline">KONTAKT</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="extras-section">
+                <h2 class="section-title">Add-ons & Upgrades fürs Web</h2>
+                <div class="extras-grid">
+                    <div class="extra-itemn">
+                        <span>Eine Woche für jedes Projekt (auch weniger/mehr)</span>
+                        <span class="extra-badge fre">Inklusive (Obligatorisch)</span>
+                    </div>
+                    <div class="extra-itemn">
+                        <span>Digitaler Projekt-Versand (E-Mail)</span>
+                        <span class="extra-badge free">Inklusive (Obligatorisch)</span>
+                    </div>
+                    <div class="extra-item">
+                        <span>Zusätzliche Entwicklungszeit (2 Stunden)</span>
+                        <span class="extra-badge">+6€</span>
+                    </div>
+                    <div class="extra-item">
+                        <span>Erweiterte Animations-Layer</span>
+                        <span class="extra-badge">+11€</span>
+                    </div>
+                    <div class="extra-item">
+                        <span>Zusätzliche Unterseite integrieren</span>
+                        <span class="extra-badge">+10€</span>
+                    </div>
+                    <div class="extra-item">
+                        <span>Captcha-Sicherheits-Integration</span>
+                        <span class="extra-badge">gratis</span>
+                    </div>
+                    <div class="extra-item">
+                        <span>Erweitertes Kontakt-Formular-Modul</span>
+                        <span class="extra-badge">+5€</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="references-section">
+                <h2 class="section-title">Referenzprojekte</h2>
+                <div class="link-grid">
+                    <a href="https://marcel533.github.io/gl-cksrad/" target="_blank" class="link-btn">
+                        <span class="link-title">Tool Box Pro</span>
+                        <span class="link-subtitle">Web Application (Full Stack)</span>
+                    </a>
+                    <a href="https://marcel533.github.io/online-code-editor/" class="link-btn">
+                        <span class="link-title">online-code-editor</span>
+                        <span class="link-subtitle">Code editor</span>
+                    </a>
+                    <a href="https://marcel533.github.io/passwort-genarator-und-benutzername/" class="link-btn">
+                        <span class="link-title">SafeGen</span>
+                        <span class="link-subtitle">Security Utility (Frontend)</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="social-section">
+                <h2 class="section-title">Digital Connect</h2>
+                <div class="link-grid">
+                    <a href="https://discord.gg/nsSXxHCWED" target="_blank" class="link-btn">
+                        <span class="link-title">Discord 2</span>
+                        <span class="link-subtitle">Videos, Streams</span>
+                    </a>
+                    <a href="https://discord.gg/nnTQ669Ag8" target="_blank" class="link-btn">
+                        <span class="link-title">Discord Main</span>
+                        <span class="link-subtitle">Official Server</span>
+                    </a>
+                    <a href="https://twitch.tv/diamond8sniper" target="_blank" class="link-btn">
+                        <span class="link-title">Twitch Stream</span>
+                        <span class="link-subtitle">Live-Entwicklung & Gaming</span>
+                    </a>
+                    <a href="https://open.spotify.com/user/312d7whucgluvn3gek2amylytr4m?si=_sPmQXujQiidpIKIMqA8YA" target="_blank" class="link-btn">
+                        <span class="link-title">Spotify Profile</span>
+                        <span class="link-subtitle">Meine Playlists</span>
+                    </a>
+                </div>
+            </section>
+
+            <div class="rules-dashed">
+                <div class="rules">
+                    <h3>Rules</h3>
+                </div>
+                <ul class="features">
+                    <li><span>✔</span> Keine komischen Anforderungen</li>
+                    <li><span>✔</span> Keine illegalen Anforderungen (einschließlich Darknet)</li>
+                    <li><span>✔</span> Ohne Geldübergabe keine Webseite</li>
+                </ul>
+            </div>
+
+        </div><!-- /page-home -->
+
+        <!-- ══ ÜBER MICH ══ -->
+        <div id="page-about" class="page">
+            <section class="inner-page-section">
+                <h2 class="section-title">Über mich</h2>
+                <p class="section-description">Der Mensch hinter dem Code.</p>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-avatar">D8</div>
+                        <h3 class="about-name">diamond8sniper</h3>
+                        <p class="about-role">// Full-Stack Developer & Digital Architect</p>
+                        <p class="about-text">
+                            Ich bin ein leidenschaftlicher Entwickler mit Fokus auf modernes Web-Design, 
+                            Frontend-Architektur und digitale Erlebnisse. Mein Ziel: Ideen in 
+                            hochwertige, performante und ästhetische Webprojekte verwandeln.
+                        </p>
+                        <div class="about-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">UI/UX</span>
+                            <span class="tag">Discord</span>
+                            <span class="tag">SEO</span>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Projekte</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">Jahre Erfahrung</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Einsatz</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Ideen</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div><!-- /page-about -->
+
+        <!-- ══ TEAM ══ -->
+        <div id="page-team" class="page">
+            <section class="inner-page-section">
+                <h2 class="section-title">Das Team</h2>
+                <p class="section-description">Wer steckt hinter diamond8sniper?</p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">D8</div>
+                        <h3>diamond8sniper</h3>
+                        <p class="team-role">// Founder & Lead Developer</p>
+                        <p class="team-desc">Frontend-Architekt, Designer, Streamer. Verantwortlich für alle Webprojekte und Discord-Setups.</p>
+                        <div class="team-links">
+                            <a href="https://twitch.tv/diamond8sniper" target="_blank" class="team-link">Twitch</a>
+                            <a href="https://discord.gg/nnTQ669Ag8" target="_blank" class="team-link">Discord</a>
+                        </div>
+                    </div>
+                    <div class="team-card custom-dashed">
+                        <div class="team-avatar ghost">?</div>
+                        <h3>Offene Position</h3>
+                        <p class="team-role">// Du könntest hier stehen</p>
+                        <p class="team-desc">Wir suchen kreative Köpfe. Entwickler, Designer, Content Creator – melde dich!</p>
+                        <div class="team-links">
+                            <a href="https://discord.gg/nnTQ669Ag8" target="_blank" class="team-link">Bewerbung →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div><!-- /page-team -->
+
+        <!-- ══ IMPRESSUM ══ -->
+        <div id="page-impressum" class="page">
+            <section class="inner-page-section">
+                <h2 class="section-title">Impressum</h2>
+                <p class="section-description">Rechtliche Informationen.</p>
+                <div class="impressum-box">
+                    <div class="impressum-block">
+                        <h4>// Anbieter</h4>
+                        <p>diamond8sniper</p>
+                        <p>Privates Einzelprojekt</p>
+                    </div>
+                    <div class="impressum-block">
+                        <h4>// Kontakt</h4>
+                        <p>E-Mail: <a href="mailto:marcel@pixelcity.top" class="imp-link">marcel@pixelcity.top</a></p>
+                        <p>Discord: <a href="https://discord.gg/nnTQ669Ag8" target="_blank" class="imp-link">Server beitreten</a></p>
+                    </div>
+                    <div class="impressum-block">
+                        <h4>// Hinweis</h4>
+                        <p>Diese Seite ist ein privates Dienstleistungsangebot. Alle Preise verstehen sich als Nettopreise. Änderungen vorbehalten.</p>
+                    </div>
+                    <div class="impressum-block">
+                        <h4>// Haftungsausschluss</h4>
+                        <p>Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+                    </div>
+                </div>
+            </section>
+        </div><!-- /page-impressum -->
+
+    </main>
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="main-footer">
+        <nav class="footer-nav" aria-label="Footer Navigation">
+            <button class="footer-btn active" onclick="showPage('home', this)">Home</button>
+            <button class="footer-btn" onclick="showPage('about', this)">Über mich</button>
+            <button class="footer-btn" onclick="showPage('team', this)">Team</button>
+            <button class="footer-btn" onclick="showPage('impressum', this)">Impressum</button>
+        </nav>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2025 <span>diamond8sniper</span></p>
+            <p class="footer-tag">// ARCHITECTING BEYOND LIMITS</p>
+        </div>
+    </footer>
+
+    <!-- ══ MODAL ══ -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-box">
+            <h3 class="modal-title">Projekt-Anfrage bestätigen</h3>
+            <p class="modal-desc">Um deine Anfrage zu senden, führe bitte die Sicherheitsprüfung durch.</p>
+            <div class="captcha-box" id="captchaClick">
+                <div class="checkbox"></div>
+                <span class="captcha-text">Ich bin ein Mensch</span>
+            </div>
+            <button id="finalCopyBtn" class="btn disabled" onclick="copyEmail()">ANFRAGE ABSENDEN</button>
+            <p id="packageInfo" class="modal-package-info"></p>
+            <button class="close-modal" onclick="closeModal()">Abbrechen</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
