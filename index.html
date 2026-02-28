@@ -364,7 +364,7 @@
                     </div>
                     <div class="impressum-block">
                         <h4>// Kontakt</h4>
-                        <p>E-Mail: <a href="mailto:marcel@pixelcity.top" class="imp-link">marcel@pixelcity.top</a></p>
+                        <p>E-Mail: <a href="/cdn-cgi/l/email-protection#bfd2decddcdad3ffcfd6c7dad3dcd6cbc691cbd0cf" class="imp-link"><span class="__cf_email__" data-cfemail="b5d8d4c7d6d0d9f5c5dccdd0d9d6dcc1cc9bc1dac5">[email&#160;protected]</span></a></p>
                         <p>Discord: <a href="https://discord.gg/nnTQ669Ag8" target="_blank" class="imp-link">Server beitreten</a></p>
                     </div>
                     <div class="impressum-block">
@@ -407,8 +407,46 @@
             </div>
             <button id="finalCopyBtn" class="btn disabled" onclick="copyEmail()">ANFRAGE ABSENDEN</button>
             <p id="packageInfo" class="modal-package-info"></p>
-            <button class="close-modal" onclick="closeModal()">Abbrechen</button>
+            <button class="modal-close-btn" onclick="closeModal()">✕ SCHLIESSEN</button>
         </div>
+    </div>
+
+    <!-- ══ AGB POPUP ══ -->
+    <div id="agb-popup" class="popup-overlay" style="display:none;">
+      <div class="popup-content">
+        <h2>Fast geschafft! 🚀</h2>
+        <p>Bitte lies und bestätige unsere Bedingungen, bevor du den Kauf abschließt.</p>
+        
+        <div class="scroll-box">
+          <h4>§ X. Zulässige Inhalte und Bestellbeschränkungen</h4>
+          <p><strong>(1) Was darf bestellt werden?</strong> Wir erstellen Webseiten für legale Geschäftszwecke, private Portfolios, Blogs und Online-Shops.</p>
+          <p><strong>(2) Was ist verboten?</strong> Es ist streng untersagt, Webseiten mit Inhalten zu bestellen oder über unsere Vorlagen zu betreiben, die:</p>
+          <ul>
+            <li>gegen geltendes Recht verstoßen (z. B. Betrug, Phishing, Urheberrechtsverletzungen).</li>
+            <li>Hassrede, Gewaltverherrlichung oder diskriminierende Inhalte verbreiten.</li>
+            <li>illegale Substanzen oder verbotene Dienstleistungen bewerben.</li>
+          </ul>
+          <p><strong>(3) Ablehnungsrecht:</strong> Der Anbieter behält sich das Recht vor, Aufträge ohne Angabe von Gründen abzulehnen, wenn der Verdacht besteht, dass die Webseite für rechtswidrige Zwecke genutzt werden soll.</p>
+          
+          <h4>§ Y. Haftungsübergang und Eigenverantwortung (Nach dem Kauf)</h4>
+          <p><strong>(1) Haftungsausschluss nach Übergabe:</strong> Mit der Bereitstellung der Webseite (Übergabe der Zugangsdaten, Dateien oder Transfer der Domain) geht die alleinige Verantwortung für den Betrieb, die Sicherheit und die Inhalte der Webseite auf den Käufer über.</p>
+          <p><strong>(2) Keine Haftung für spätere Schäden:</strong> Wir übernehmen ausdrücklich keine Haftung für:</p>
+          <ul>
+            <li>Schäden, die durch nachträgliche Änderungen am Code oder Design durch den Kunden oder Dritte entstehen.</li>
+            <li>Hackerangriffe, Datenverlust oder technische Ausfälle nach der Übergabe.</li>
+            <li>Veraltete Plugins oder Software-Komponenten, die nach dem Kauf nicht vom Kunden aktualisiert wurden.</li>
+          </ul>
+          <p><strong>(3) Rechtliche Verantwortung:</strong> Der Kunde ist nach der Übergabe allein dafür verantwortlich, die Webseite rechtssicher zu betreiben (z. B. korrektes Impressum, Datenschutzerklärung gemäß DSGVO, Cookie-Banner). Wir führen keine Rechtsberatung durch und haften nicht für Abmahnungen, die aus einer fehlerhaften rechtlichen Gestaltung der Webseite durch den Kunden resultieren.</p>
+        </div>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="agb-checkbox">
+          <label for="agb-checkbox">
+            Ich habe die oben stehenden Bedingungen (insbesondere zu Inhalten und Haftung) sowie die <a href="/widerruf" target="_blank">Widerrufsbelehrung</a> gelesen und akzeptiere diese.
+          </label>
+        </div>
+        <button id="buy-submit-button" disabled>Zahlungspflichtig bestellen</button>
+        <button id="close-popup-btn" class="close-btn">Abbrechen</button>
+      </div>
     </div>
 
     <script src="script.js"></script>
