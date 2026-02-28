@@ -761,3 +761,108 @@ h1, h2, h3 {
     .main-footer { padding: 36px 20px 20px; }
     .footer-bottom { justify-content: center; text-align: center; }
 }
+
+/* ══ AGB POPUP STYLES ══ */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+}
+.popup-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+}
+.popup-content h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #111;
+}
+.popup-content > p {
+  color: #444;
+}
+.scroll-box {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  max-height: 250px;
+  overflow-y: auto;
+  margin: 20px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+.scroll-box h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #111;
+}
+.scroll-box ul {
+  padding-left: 20px;
+}
+.checkbox-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 25px;
+  font-size: 15px;
+  color: #333;
+}
+.checkbox-wrapper input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.checkbox-wrapper a {
+  color: #007bff;
+  text-decoration: none;
+}
+.checkbox-wrapper a:hover {
+  text-decoration: underline;
+}
+#buy-submit-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#buy-submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+#buy-submit-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+.close-btn {
+  background: none;
+  border: none;
+  color: #888;
+  margin-top: 15px;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+}
+.close-btn:hover {
+  color: #333;
+}
