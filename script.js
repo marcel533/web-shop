@@ -48,27 +48,38 @@ document.getElementById('captchaClick').addEventListener('click', function () {
     }
 });
 
-// ══ E-Mail kopieren ══
+// ══ E-Mail kopieren (wird nach AGB-Akzeptanz ausgeführt) ══
+function doCopyEmail() {
+    const email = "marcel@pixelcity.top";
+    const popup = document.getElementById('agb-popup');
+
+    navigator.clipboard.writeText(email).then(() => {
+        // Popup schließen
+        popup.style.display = 'none';
+
+        // Modal: Button-Feedback anzeigen
+        const finalBtn = document.getElementById('finalCopyBtn');
+        const originalText = finalBtn.innerText;
+        finalBtn.innerText = "E-MAIL KOPIERT!";
+        finalBtn.style.background = "#00ff88";
+        finalBtn.style.color = "#000";
+
+        setTimeout(() => {
+            finalBtn.innerText = originalText;
+            finalBtn.style.background = "";
+            finalBtn.style.color = "";
+            closeModal();
+        }, 2000);
+    }).catch(() => {
+        alert("E-Mail: " + email);
+    });
+}
+
+// ══ CAPTCHA → AGB Popup öffnen ══
 function copyEmail() {
     const finalBtn = document.getElementById('finalCopyBtn');
-
     if (!finalBtn.classList.contains('disabled')) {
-        const email = "marcel@pixelcity.top";
-
-        navigator.clipboard.writeText(email).then(() => {
-            const originalText = finalBtn.innerText;
-            finalBtn.innerText = "E-MAIL KOPIERT!";
-            finalBtn.style.background = "#00ff88";
-            finalBtn.style.color = "#000";
-            setTimeout(() => {
-                finalBtn.innerText = originalText;
-                finalBtn.style.background = "";
-                finalBtn.style.color = "";
-                closeModal();
-            }, 2000);
-        }).catch(() => {
-            alert("E-Mail: " + email);
-        });
+        openAgbPopup();
     }
 }
 
@@ -77,3 +88,47 @@ window.onclick = function (event) {
     const modal = document.getElementById('modalOverlay');
     if (event.target === modal) closeModal();
 };
+
+// ══ AGB POPUP LOGIK ══
+document.addEventListener('DOMContentLoaded', function () {
+    const agbCheckbox = document.getElementById('agb-checkbox');
+    const buyButton = document.getElementById('buy-submit-button');
+    const closeBtn = document.getElementById('close-popup-btn');
+    const popup = document.getElementById('agb-popup');
+
+    // Checkbox aktiviert/deaktiviert den Kauf-Button
+    agbCheckbox.addEventListener('change', function () {
+        buyButton.disabled = !this.checked;
+    });
+
+    // Kauf-Button → E-Mail kopieren nach AGB-Akzeptanz
+    buyButton.addEventListener('click', function () {
+        doCopyEmail();
+    });
+
+    // Popup schließen (Abbrechen)
+    closeBtn.addEventListener('click', function () {
+        popup.style.display = 'none';
+        agbCheckbox.checked = false;
+        buyButton.disabled = true;
+    });
+
+    // Popup schließen bei Klick auf den Hintergrund
+    popup.addEventListener('click', function (e) {
+        if (e.target === popup) {
+            popup.style.display = 'none';
+            agbCheckbox.checked = false;
+            buyButton.disabled = true;
+        }
+    });
+});
+
+// ══ AGB POPUP öffnen ══
+function openAgbPopup() {
+    const popup = document.getElementById('agb-popup');
+    const agbCheckbox = document.getElementById('agb-checkbox');
+    const buyButton = document.getElementById('buy-submit-button');
+    agbCheckbox.checked = false;
+    buyButton.disabled = true;
+    popup.style.display = 'flex';
+}
