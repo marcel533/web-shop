@@ -866,3 +866,61 @@ h1, h2, h3 {
 .close-btn:hover {
   color: #333;
 }
+
+:root {
+    --discord-blurple: #5865F2;
+    --discord-dark: #23272A;
+    --discord-gray: #2C2F33;
+    --text-light: #ffffff;
+    --accent-color: #ff4757; /* Für den "Nur noch dieses Jahr"-Effekt */
+}
+
+.pricing-section {
+    background-color: var(--discord-dark);
+    color: var(--text-light);
+    padding: 60px 20px;
+    font-family: 'Inter', -apple-system, sans-serif;
+    text-align: center;
+}
+
+.section-header {
+    margin-bottom: 40px;
+}
+
+.badge {
+    background: var(--accent-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 800;
+    background: linear-gradient(90deg, #fff, var(--discord-blurple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.promo-text {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 5px;
+    text-transform: italic;
+}
+
+.section-description {
+    color: #b9bbbe;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 20px auto 0;
+    line-height: 1.6;
+}
