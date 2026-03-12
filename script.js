@@ -1,134 +1,269 @@
-// ══ FOOTER NAVIGATION – Seitenwechsel ══
-function showPage(pageId, btn) {
-    // Alle Seiten verstecken
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    // Ziel-Seite anzeigen
-    const target = document.getElementById('page-' + pageId);
-    if (target) target.classList.add('active');
+// ════════════════════════════════════
+// Configuration
+// ════════════════════════════════════
 
-    // Aktiven Button markieren
-    document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
-    if (btn) btn.classList.add('active');
-
-    // Sanft nach oben scrollen
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// ══ MODAL – Anfrage öffnen ══
-function openRequest(packageName) {
-    const modal = document.getElementById('modalOverlay');
-    const packageInfo = document.getElementById('packageInfo');
-    const finalBtn = document.getElementById('finalCopyBtn');
-    const captchaBox = document.getElementById('captchaClick');
-
-    packageInfo.innerText = "Gewähltes Paket: " + packageName;
-    captchaBox.querySelector('.checkbox').classList.remove('checked');
-    captchaBox.classList.remove('checked');
-    finalBtn.classList.add('disabled');
-
-    modal.style.display = 'flex';
-}
-
-// ══ MODAL – Schließen ══
-function closeModal() {
-    document.getElementById('modalOverlay').style.display = 'none';
-}
-
-// ══ CAPTCHA Klick-Logik ══
-document.getElementById('captchaClick').addEventListener('click', function () {
-    const checkbox = this.querySelector('.checkbox');
-    checkbox.classList.toggle('checked');
-    this.classList.toggle('checked');
-
-    const finalBtn = document.getElementById('finalCopyBtn');
-    if (checkbox.classList.contains('checked')) {
-        finalBtn.classList.remove('disabled');
-    } else {
-        finalBtn.classList.add('disabled');
+const CONFIG = {
+    EMAIL: 'marcel@pixelcity.top',
+    SELECTORS: {
+        pages: '.page',
+        footerButtons: '.footer-btn',
+        modal: '#modalOverlay',
+        packageInfo: '#packageInfo',
+        finalButton: '#finalCopyBtn',
+        captchaBox: '#captchaClick',
+        checkbox: '.checkbox',
+        agbPopup: '#agb-popup',
+        agbCheckbox: '#agb-checkbox',
+        buyButton: '#buy-submit-button',
+        closePopupBtn: '#close-popup-btn',
     }
-});
-
-// ══ E-Mail kopieren (wird nach AGB-Akzeptanz ausgeführt) ══
-function doCopyEmail() {
-    const email = "marcel@pixelcity.top";
-    const popup = document.getElementById('agb-popup');
-
-    navigator.clipboard.writeText(email).then(() => {
-        // Popup schließen
-        popup.style.display = 'none';
-
-        // Modal: Button-Feedback anzeigen
-        const finalBtn = document.getElementById('finalCopyBtn');
-        const originalText = finalBtn.innerText;
-        finalBtn.innerText = "E-MAIL KOPIERT!";
-        finalBtn.style.background = "#00ff88";
-        finalBtn.style.color = "#000";
-
-        setTimeout(() => {
-            finalBtn.innerText = originalText;
-            finalBtn.style.background = "";
-            finalBtn.style.color = "";
-            closeModal();
-        }, 2000);
-    }).catch(() => {
-        alert("E-Mail: " + email);
-    });
-}
-
-// ══ CAPTCHA → AGB Popup öffnen ══
-function copyEmail() {
-    const finalBtn = document.getElementById('finalCopyBtn');
-    if (!finalBtn.classList.contains('disabled')) {
-        openAgbPopup();
-    }
-}
-
-// ══ Modal schließen bei Klick außerhalb ══
-window.onclick = function (event) {
-    const modal = document.getElementById('modalOverlay');
-    if (event.target === modal) closeModal();
 };
 
-// ══ AGB POPUP LOGIK ══
-document.addEventListener('DOMContentLoaded', function () {
-    const agbCheckbox = document.getElementById('agb-checkbox');
-    const buyButton = document.getElementById('buy-submit-button');
-    const closeBtn = document.getElementById('close-popup-btn');
-    const popup = document.getElementById('agb-popup');
+// ════════════════════════════════════
+// Utilities
+// ════════════════════════════════════
 
-    // Checkbox aktiviert/deaktiviert den Kauf-Button
+/**
+ * Shows a page and hides others
+ * @param {string} pageId - The page ID without 'page-' prefix
+ * @param {HTMLElement} button - The button element that was clicked
+ */
+function showPage(pageId, button) {
+    try {
+        // Hide all pages
+        document.querySelectorAll(CONFIG.SELECTORS.pages).forEach(page => {
+            page.classList.remove('active');
+        });
+
+        // Show target page
+        const targetPage = document.getElementById(`page-${pageId}`);
+        if (!targetPage) {
+            console.warn(`Page not found: page-${pageId}`);
+            return;
+        }
+        targetPage.classList.add('active');
+
+        // Update active button
+        document.querySelectorAll(CONFIG.SELECTORS.footerButtons).forEach(btn => {
+            btn.classList.remove('active');
+        });
+        if (button) button.classList.add('active');
+
+        // Smooth scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (error) {
+        console.error('Error showing page:', error);
+    }
+}
+
+/**
+ * Opens the request modal for a package
+ * @param {string} packageName - The package name
+ */
+function openRequest(packageName) {
+    try {
+        const modal = document.querySelector(CONFIG.SELECTORS.modal);
+        const packageInfo = document.querySelector(CONFIG.SELECTORS.packageInfo);
+        const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
+        const captchaBox = document.querySelector(CONFIG.SELECTORS.captchaBox);
+        const checkbox = captchaBox.querySelector(CONFIG.SELECTORS.checkbox);
+
+        if (!modal || !packageInfo || !finalBtn) return;
+
+        packageInfo.textContent = `Gewähltes Paket: ${packageName}`;
+        checkbox.classList.remove('checked');
+        captchaBox.classList.remove('checked');
+        finalBtn.classList.add('disabled');
+
+        modal.style.display = 'flex';
+        modal.setAttribute('aria-hidden', 'false');
+    } catch (error) {
+        console.error('Error opening request modal:', error);
+    }
+}
+
+/**
+ * Closes the modal
+ */
+function closeModal() {
+    try {
+        const modal = document.querySelector(CONFIG.SELECTORS.modal);
+        if (modal) {
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+        }
+    } catch (error) {
+        console.error('Error closing modal:', error);
+    }
+}
+
+/**
+ * Copies email to clipboard and opens AGB popup
+ */
+function copyEmail() {
+    try {
+        const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
+        if (finalBtn && !finalBtn.classList.contains('disabled')) {
+            openAgbPopup();
+        }
+    } catch (error) {
+        console.error('Error in copyEmail:', error);
+    }
+}
+
+/**
+ * Handles the actual email copy after AGB acceptance
+ */
+function doCopyEmail() {
+    try {
+        const popup = document.querySelector(CONFIG.SELECTORS.agbPopup);
+        const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
+
+        navigator.clipboard.writeText(CONFIG.EMAIL).then(() => {
+            // Close popup
+            if (popup) popup.style.display = 'none';
+
+            // Show feedback
+            if (finalBtn) {
+                const originalText = finalBtn.innerText;
+                finalBtn.innerText = '✓ E-MAIL KOPIERT!';
+                finalBtn.style.background = '#00ff88';
+                finalBtn.style.color = '#000';
+
+                setTimeout(() => {
+                    finalBtn.innerText = originalText;
+                    finalBtn.style.background = '';
+                    finalBtn.style.color = '';
+                    closeModal();
+                }, 2000);
+            }
+        }).catch(() => {
+            alert(`E-Mail: ${CONFIG.EMAIL}`);
+        });
+    } catch (error) {
+        console.error('Error copying email:', error);
+        alert(`E-Mail: ${CONFIG.EMAIL}`);
+    }
+}
+
+/**
+ * Opens the AGB popup
+ */
+function openAgbPopup() {
+    try {
+        const popup = document.querySelector(CONFIG.SELECTORS.agbPopup);
+        const agbCheckbox = document.querySelector(CONFIG.SELECTORS.agbCheckbox);
+        const buyButton = document.querySelector(CONFIG.SELECTORS.buyButton);
+
+        if (popup && agbCheckbox && buyButton) {
+            agbCheckbox.checked = false;
+            buyButton.disabled = true;
+            popup.style.display = 'flex';
+            popup.setAttribute('aria-hidden', 'false');
+        }
+    } catch (error) {
+        console.error('Error opening AGB popup:', error);
+    }
+}
+
+// ════════════════════════════════════
+// Event Listeners - CAPTCHA
+// ════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Captcha checkbox toggle
+    const captchaBox = document.querySelector(CONFIG.SELECTORS.captchaBox);
+    if (captchaBox) {
+        captchaBox.addEventListener('click', function () {
+            try {
+                const checkbox = this.querySelector(CONFIG.SELECTORS.checkbox);
+                const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
+
+                if (!checkbox || !finalBtn) return;
+
+                checkbox.classList.toggle('checked');
+                this.classList.toggle('checked');
+
+                if (checkbox.classList.contains('checked')) {
+                    finalBtn.classList.remove('disabled');
+                } else {
+                    finalBtn.classList.add('disabled');
+                }
+            } catch (error) {
+                console.error('Error in captcha click handler:', error);
+            }
+        });
+    }
+
+    // Close modal on outside click
+    window.addEventListener('click', function (event) {
+        const modal = document.querySelector(CONFIG.SELECTORS.modal);
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+});
+
+// ════════════════════════════════════
+// Event Listeners - AGB Popup
+// ════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', function () {
+    const agbCheckbox = document.querySelector(CONFIG.SELECTORS.agbCheckbox);
+    const buyButton = document.querySelector(CONFIG.SELECTORS.buyButton);
+    const closeBtn = document.querySelector(CONFIG.SELECTORS.closePopupBtn);
+    const popup = document.querySelector(CONFIG.SELECTORS.agbPopup);
+
+    if (!agbCheckbox || !buyButton || !closeBtn || !popup) {
+        console.warn('AGB popup elements not found');
+        return;
+    }
+
+    // Toggle buy button based on checkbox
     agbCheckbox.addEventListener('change', function () {
         buyButton.disabled = !this.checked;
     });
 
-    // Kauf-Button → E-Mail kopieren nach AGB-Akzeptanz
+    // Buy button triggers email copy
     buyButton.addEventListener('click', function () {
         doCopyEmail();
     });
 
-    // Popup schließen (Abbrechen)
+    // Close popup button
     closeBtn.addEventListener('click', function () {
         popup.style.display = 'none';
+        popup.setAttribute('aria-hidden', 'true');
         agbCheckbox.checked = false;
         buyButton.disabled = true;
     });
 
-    // Popup schließen bei Klick auf den Hintergrund
+    // Close popup on background click
     popup.addEventListener('click', function (e) {
         if (e.target === popup) {
             popup.style.display = 'none';
+            popup.setAttribute('aria-hidden', 'true');
             agbCheckbox.checked = false;
             buyButton.disabled = true;
         }
     });
 });
 
-// ══ AGB POPUP öffnen ══
-function openAgbPopup() {
-    const popup = document.getElementById('agb-popup');
-    const agbCheckbox = document.getElementById('agb-checkbox');
-    const buyButton = document.getElementById('buy-submit-button');
-    agbCheckbox.checked = false;
-    buyButton.disabled = true;
-    popup.style.display = 'flex';
-}
+// ════════════════════════════════════
+// Keyboard Navigation
+// ════════════════════════════════════
+
+document.addEventListener('keydown', function (e) {
+    const modal = document.querySelector(CONFIG.SELECTORS.modal);
+    const popup = document.querySelector(CONFIG.SELECTORS.agbPopup);
+
+    // Close modals with Escape key
+    if (e.key === 'Escape') {
+        if (modal && modal.style.display === 'flex') {
+            closeModal();
+        }
+        if (popup && popup.style.display === 'flex') {
+            popup.style.display = 'none';
+            popup.setAttribute('aria-hidden', 'true');
+        }
+    }
+});
