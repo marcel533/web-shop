@@ -3,7 +3,7 @@
 // ════════════════════════════════════
 
 const CONFIG = {
-    EMAIL: 'marcel@pixelcity.top',
+    EMAIL: 'marcel.Worgotter@proton.me',
     SELECTORS: {
         pages: '.page',
         footerButtons: '.footer-btn',
