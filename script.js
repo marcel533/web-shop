@@ -3,7 +3,7 @@
 // ════════════════════════════════════
 
 const CONFIG = {
-    EMAIL: 'marcel.Worgotter@proton.me',
+    EMAIL: 'diamond8sniper-shop.unbent931@passinbox.com',
     SELECTORS: {
         pages: '.page',
         footerButtons: '.footer-btn',
