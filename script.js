@@ -3,7 +3,7 @@
 // ════════════════════════════════════
 
 const CONFIG = {
-    EMAIL: 'diamond8sniper-shop.unbent931@passinbox.com',
+    EMAIL: 'marcel@pixelcity.top',
     SELECTORS: {
         pages: '.page',
         footerButtons: '.footer-btn',
