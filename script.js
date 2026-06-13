@@ -58,6 +58,7 @@ function showPage(pageId, button) {
 
 /**
  * Opens the request modal for a package
+ * @param {string} packageName - The package name
  */
 function openRequest(packageName) {
     try {
@@ -65,13 +66,12 @@ function openRequest(packageName) {
         const packageInfo = document.querySelector(CONFIG.SELECTORS.packageInfo);
         const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
         const captchaBox = document.querySelector(CONFIG.SELECTORS.captchaBox);
-
-        if (!modal || !packageInfo || !finalBtn || !captchaBox) return;
-        
         const checkbox = captchaBox.querySelector(CONFIG.SELECTORS.checkbox);
 
+        if (!modal || !packageInfo || !finalBtn) return;
+
         packageInfo.textContent = `Gewähltes Paket: ${packageName}`;
-        if (checkbox) checkbox.classList.remove('checked');
+        checkbox.classList.remove('checked');
         captchaBox.classList.remove('checked');
         finalBtn.classList.add('disabled');
 
@@ -164,10 +164,48 @@ function openAgbPopup() {
     } catch (error) {
         console.error('Error opening AGB popup:', error);
     }
-} // <--- HIER hat die schließende Klammer gefehlt!
+}
 
 // ════════════════════════════════════
-// Event Listeners
+// Event Listeners - CAPTCHA
+// ════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Captcha checkbox toggle
+    const captchaBox = document.querySelector(CONFIG.SELECTORS.captchaBox);
+    if (captchaBox) {
+        captchaBox.addEventListener('click', function () {
+            try {
+                const checkbox = this.querySelector(CONFIG.SELECTORS.checkbox);
+                const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
+
+                if (!checkbox || !finalBtn) return;
+
+                checkbox.classList.toggle('checked');
+                this.classList.toggle('checked');
+
+                if (checkbox.classList.contains('checked')) {
+                    finalBtn.classList.remove('disabled');
+                } else {
+                    finalBtn.classList.add('disabled');
+                }
+            } catch (error) {
+                console.error('Error in captcha click handler:', error);
+            }
+        });
+    }
+
+    // Close modal on outside click
+    window.addEventListener('click', function (event) {
+        const modal = document.querySelector(CONFIG.SELECTORS.modal);
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+});
+
+// ════════════════════════════════════
+// Event Listeners - AGB Popup
 // ════════════════════════════════════
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -175,32 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const buyButton = document.querySelector(CONFIG.SELECTORS.buyButton);
     const closeBtn = document.querySelector(CONFIG.SELECTORS.closePopupBtn);
     const popup = document.querySelector(CONFIG.SELECTORS.agbPopup);
-    
-    // Captcha-Elemente für die Freischaltung des ersten Buttons
-    const captchaBox = document.querySelector(CONFIG.SELECTORS.captchaBox);
-    const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
 
-    // 1. Captcha Logik (aktiviert den Kopieren-Button im ersten Modal)
-    if (captchaBox && finalBtn) {
-        captchaBox.addEventListener('click', function () {
-            const checkbox = captchaBox.querySelector(CONFIG.SELECTORS.checkbox);
-            captchaBox.classList.toggle('checked');
-            if (checkbox) checkbox.classList.toggle('checked');
-            
-            if (captchaBox.classList.contains('checked')) {
-                finalBtn.classList.remove('disabled');
-            } else {
-                finalBtn.classList.add('disabled');
-            }
-        });
-    }
-
-    // 2. Ersten Button anbinden, falls direkt geklickt
-    if (finalBtn) {
-        finalBtn.addEventListener('click', copyEmail);
-    }
-
-    // 3. AGB Popup Logik
     if (!agbCheckbox || !buyButton || !closeBtn || !popup) {
         console.warn('AGB popup elements not found');
         return;
