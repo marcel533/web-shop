@@ -458,9 +458,10 @@
         <div class="modal-box">
             <h3 class="modal-title" id="modal-title">Projekt-Anfrage bestätigen</h3>
             <p class="modal-desc">Um deine Anfrage zu senden, führe bitte die Sicherheitsprüfung durch.</p>
-            <div class="captcha-box" id="captchaClick" role="checkbox" aria-checked="false" aria-label="Ich bin ein Mensch">
-                <div class="checkbox"></div>
-                <span class="captcha-text">Ich bin ein Mensch</span>
+<script src="https://cdn.jsdelivr.net/npm/@cap.js/widget"></script>
+<!-- pin a version in production, e.g. @cap.js/widget@3 -->
+
+<cap-widget data-cap-api-endpoint="https://captcha.pixelcity.top/2934e4083b/"></cap-widget>
             </div>
             <button id="finalCopyBtn" class="btn disabled" onclick="copyEmail()">ANFRAGE ABSENDEN</button>
             <p id="packageInfo" class="modal-package-info"></p>
@@ -501,11 +502,6 @@
                     Ich habe die oben stehenden Bedingungen (insbesondere zu Inhalten und Haftung) sowie die <a href="/wiederruf" target="_blank" rel="noopener noreferrer">Widerrufsbelehrung</a> gelesen und akzeptiere diese.
                 </label>
             </div>
-            
-            <script src="https://cdn.jsdelivr.net/npm/@cap.js/widget"></script>
-<!-- pin a version in production, e.g. @cap.js/widget@3 -->
-
-<cap-widget data-cap-api-endpoint="https://captcha.pixelcity.top/2934e4083b/"></cap-widget>
             
             <button id="buy-submit-button" disabled>Zahlungspflichtig bestellen</button>
             <button id="close-popup-btn" class="close-btn">Abbrechen</button>
