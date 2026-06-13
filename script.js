@@ -10,8 +10,7 @@ const CONFIG = {
         modal: '#modalOverlay',
         packageInfo: '#packageInfo',
         finalButton: '#finalCopyBtn',
-        captchaBox: '#captchaClick',
-        checkbox: '.checkbox',
+        capWidget: 'cap-widget',
         agbPopup: '#agb-popup',
         agbCheckbox: '#agb-checkbox',
         buyButton: '#buy-submit-button',
@@ -65,15 +64,17 @@ function openRequest(packageName) {
         const modal = document.querySelector(CONFIG.SELECTORS.modal);
         const packageInfo = document.querySelector(CONFIG.SELECTORS.packageInfo);
         const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
-        const captchaBox = document.querySelector(CONFIG.SELECTORS.captchaBox);
-        const checkbox = captchaBox.querySelector(CONFIG.SELECTORS.checkbox);
+        const capWidget = document.querySelector(CONFIG.SELECTORS.capWidget);
 
         if (!modal || !packageInfo || !finalBtn) return;
 
         packageInfo.textContent = `Gewähltes Paket: ${packageName}`;
-        checkbox.classList.remove('checked');
-        captchaBox.classList.remove('checked');
+
+        // Require the captcha to be solved again for every new request
         finalBtn.classList.add('disabled');
+        if (capWidget && typeof capWidget.reset === 'function') {
+            capWidget.reset();
+        }
 
         modal.style.display = 'flex';
         modal.setAttribute('aria-hidden', 'false');
@@ -167,40 +168,30 @@ function openAgbPopup() {
 }
 
 // ════════════════════════════════════
-// Event Listeners - CAPTCHA
+// Event Listeners - Captcha (cap-widget)
 // ════════════════════════════════════
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Captcha checkbox toggle
-    const captchaBox = document.querySelector(CONFIG.SELECTORS.captchaBox);
-    if (captchaBox) {
-        captchaBox.addEventListener('click', function () {
-            try {
-                const checkbox = this.querySelector(CONFIG.SELECTORS.checkbox);
-                const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
+    const capWidget = document.querySelector(CONFIG.SELECTORS.capWidget);
+    const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
 
-                if (!checkbox || !finalBtn) return;
-
-                checkbox.classList.toggle('checked');
-                this.classList.toggle('checked');
-
-                if (checkbox.classList.contains('checked')) {
-                    finalBtn.classList.remove('disabled');
-                } else {
-                    finalBtn.classList.add('disabled');
-                }
-            } catch (error) {
-                console.error('Error in captcha click handler:', error);
-            }
-        });
+    if (!capWidget || !finalBtn) {
+        console.warn('Captcha widget or final button not found');
+        return;
     }
 
-    // Close modal on outside click
-    window.addEventListener('click', function (event) {
-        const modal = document.querySelector(CONFIG.SELECTORS.modal);
-        if (event.target === modal) {
-            closeModal();
-        }
+    // Enable the final button once the captcha challenge is solved
+    capWidget.addEventListener('solve', function () {
+        finalBtn.classList.remove('disabled');
+    });
+
+    // Re-disable the final button if the captcha is reset or expires
+    capWidget.addEventListener('reset', function () {
+        finalBtn.classList.add('disabled');
+    });
+
+    capWidget.addEventListener('error', function () {
+        finalBtn.classList.add('disabled');
     });
 });
 
