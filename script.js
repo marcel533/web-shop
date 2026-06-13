@@ -163,46 +163,8 @@ function openAgbPopup() {
         }
     } catch (error) {
         console.error('Error opening AGB popup:', error);
+
     }
-}
-
-// ════════════════════════════════════
-// Event Listeners - CAPTCHA
-// ════════════════════════════════════
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Captcha checkbox toggle
-    const captchaBox = document.querySelector(CONFIG.SELECTORS.captchaBox);
-    if (captchaBox) {
-        captchaBox.addEventListener('click', function () {
-            try {
-                const checkbox = this.querySelector(CONFIG.SELECTORS.checkbox);
-                const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
-
-                if (!checkbox || !finalBtn) return;
-
-                checkbox.classList.toggle('checked');
-                this.classList.toggle('checked');
-
-                if (checkbox.classList.contains('checked')) {
-                    finalBtn.classList.remove('disabled');
-                } else {
-                    finalBtn.classList.add('disabled');
-                }
-            } catch (error) {
-                console.error('Error in captcha click handler:', error);
-            }
-        });
-    }
-
-    // Close modal on outside click
-    window.addEventListener('click', function (event) {
-        const modal = document.querySelector(CONFIG.SELECTORS.modal);
-        if (event.target === modal) {
-            closeModal();
-        }
-    });
-});
 
 // ════════════════════════════════════
 // Event Listeners - AGB Popup
