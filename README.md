@@ -18,3 +18,5 @@ Was dich erwartet:
 Dieser Shop ist für Menschen, die nicht untergehen wollen, sondern auffallen.
 Wenn du etwas suchst, das Charakter hat – du bist hier richtig.
 URL:https://marcel533.github.io/web-shop/
+---
+The css is fully generated with AI
