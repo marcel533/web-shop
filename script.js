@@ -10,7 +10,7 @@ const CONFIG = {
         modal: '#modalOverlay',
         packageInfo: '#packageInfo',
         finalButton: '#finalCopyBtn',
-        capWidget: 'cap-widget',
+        captchaWidget: '#captchaWidget',
         agbPopup: '#agb-popup',
         agbCheckbox: '#agb-checkbox',
         buyButton: '#buy-submit-button',
@@ -61,25 +61,28 @@ function showPage(pageId, button) {
  */
 function openRequest(packageName) {
     try {
-        const modal = document.querySelector(CONFIG.SELECTORS.modal);
-        const packageInfo = document.querySelector(CONFIG.SELECTORS.packageInfo);
-        const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
-        const capWidget = document.querySelector(CONFIG.SELECTORS.capWidget);
-
-        if (!modal || !packageInfo || !finalBtn) return;
-
-        packageInfo.textContent = `Gewähltes Paket: ${packageName}`;
-
-        // Require the captcha to be solved again for every new request
-        finalBtn.classList.add('disabled');
-        if (capWidget && typeof capWidget.reset === 'function') {
-            capWidget.reset();
+        const popup = document.getElementById('maintenance-popup');
+        if (popup) {
+            popup.style.display = 'flex';
+            popup.setAttribute('aria-hidden', 'false');
         }
-
-        modal.style.display = 'flex';
-        modal.setAttribute('aria-hidden', 'false');
     } catch (error) {
-        console.error('Error opening request modal:', error);
+        console.error('Error opening maintenance popup:', error);
+    }
+}
+
+/**
+ * Closes the maintenance popup
+ */
+function closeMaintenance() {
+    try {
+        const popup = document.getElementById('maintenance-popup');
+        if (popup) {
+            popup.style.display = 'none';
+            popup.setAttribute('aria-hidden', 'true');
+        }
+    } catch (error) {
+        console.error('Error closing maintenance popup:', error);
     }
 }
 
@@ -168,32 +171,37 @@ function openAgbPopup() {
 }
 
 // ════════════════════════════════════
-// Event Listeners - Captcha (cap-widget)
+// Custom Captcha Logic
 // ════════════════════════════════════
 
-document.addEventListener('DOMContentLoaded', function () {
-    const capWidget = document.querySelector(CONFIG.SELECTORS.capWidget);
-    const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
+function captchaClick() {
+    const widget = document.getElementById('captchaWidget');
+    const spinner = document.getElementById('captchaSpinner');
+    if (!widget || widget.classList.contains('solved') || widget.classList.contains('checking')) return;
 
-    if (!capWidget || !finalBtn) {
-        console.warn('Captcha widget or final button not found');
-        return;
-    }
+    // Checking state
+    widget.classList.add('checking');
+    spinner.style.display = 'block';
 
-    // Enable the final button once the captcha challenge is solved
-    capWidget.addEventListener('solve', function () {
-        finalBtn.classList.remove('disabled');
-    });
+    // Simulate brief verification delay (300–700ms)
+    const delay = 300 + Math.random() * 400;
+    setTimeout(() => {
+        widget.classList.remove('checking');
+        spinner.style.display = 'none';
+        widget.classList.add('solved');
 
-    // Re-disable the final button if the captcha is reset or expires
-    capWidget.addEventListener('reset', function () {
-        finalBtn.classList.add('disabled');
-    });
+        const finalBtn = document.querySelector(CONFIG.SELECTORS.finalButton);
+        if (finalBtn) finalBtn.classList.remove('disabled');
+    }, delay);
+}
 
-    capWidget.addEventListener('error', function () {
-        finalBtn.classList.add('disabled');
-    });
-});
+function captchaReset() {
+    const widget = document.getElementById('captchaWidget');
+    const spinner = document.getElementById('captchaSpinner');
+    if (!widget) return;
+    widget.classList.remove('solved', 'checking');
+    if (spinner) spinner.style.display = 'none';
+}
 
 // ════════════════════════════════════
 // Event Listeners - AGB Popup
@@ -237,6 +245,14 @@ document.addEventListener('DOMContentLoaded', function () {
             buyButton.disabled = true;
         }
     });
+
+    // Close maintenance popup on background click
+    const maintenancePopup = document.getElementById('maintenance-popup');
+    if (maintenancePopup) {
+        maintenancePopup.addEventListener('click', function (e) {
+            if (e.target === maintenancePopup) closeMaintenance();
+        });
+    }
 });
 
 // ════════════════════════════════════
@@ -255,6 +271,10 @@ document.addEventListener('keydown', function (e) {
         if (popup && popup.style.display === 'flex') {
             popup.style.display = 'none';
             popup.setAttribute('aria-hidden', 'true');
+        }
+        const maintenance = document.getElementById('maintenance-popup');
+        if (maintenance && maintenance.style.display === 'flex') {
+            closeMaintenance();
         }
     }
 });
