@@ -3,433 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="marcel533 - Premium Digital Architecture & Web Design Services. Professionelle Webseiten.">
-    <meta name="keywords" content="Web Design, Full-Stack Developer, Digital Architecture">
+    <meta name="description" content="marcel533 - Premium Digital Architecture & Web Design Services.">
     <meta name="author" content="marcel533">
-    <meta name="theme-color" content="#00f3ff">
+    <meta name="theme-color" content="#05060a">
     <title>marcel533 | Digital Architecture & Web Design</title>
     <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/d8/3c/28/d83c28e4b976c8586790211764002031.jpg">
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=orbitron:wght@400;900|inter:wght@400;700" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=orbitron:wght@400;700;900|inter:wght@400;600;700" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{fontFamily:{head:['Orbitron','sans-serif'],sans:['Inter','sans-serif']}}}}</script>
     <link rel="stylesheet" href="style.css">
 </head>
+<body class="min-h-screen font-sans text-slate-200 antialiased">
 
-<body class="dark-theme">
-    <!-- Header -->
-    <header class="main-header" role="banner">
-        <h1 class="logo">marcel533</h1>
-        <p class="subtitle">PREMIUM DIGITAL ARCHITECTURE & NEXT-GEN DESIGN</p>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container" role="main">
-        
-        <!-- HOME PAGE -->
-        <div id="page-home" class="page active">
-
-            <!-- Webseiten-Preise -->
-            <section class="pricing-section" aria-labelledby="web-pricing-title">
-                <h2 class="section-title" id="web-pricing-title">Webseiten Preise & Pakete</h2>
-                <p class="section-description">Wähle die passende Architektur für dein digitales Vorhaben.</p>
-                
-                <div class="pricing-grid">
-                    <!-- Basic HTML -->
-                    <article class="card">
-                        <div class="card-header">
-                            <h3>Basic HTML</h3>
-                            <div class="price-tag" aria-label="Preis: 15 Euro">15€</div>
-                        </div>
-                        <ul class="features">
-                            <li><span aria-hidden="true">✔</span> Statische Single-Page Architektur</li>
-                            <li><span aria-hidden="true">✔</span> Optimierte Informations-Hierarchie</li>
-                            <li><span aria-hidden="true">✔</span> W3C-Konformer Clean Code</li>
-                        </ul>
-                        <button onclick="openRequest('Basic')" class="btn">PROJEKT STARTEN</button>
-                    </article>
-
-                    <!-- Standard Web -->
-                    <article class="card">
-                        <div class="card-header">
-                            <h3>Standard Web</h3>
-                            <div class="price-tag" aria-label="Preis: 30 Euro">30€</div>
-                        </div>
-                        <ul class="features">
-                            <li><span aria-hidden="true">✔</span> Exklusives UI/UX Design</li>
-                            <li><span aria-hidden="true">✔</span> Full Asset Integration (Bilder, Icons)</li>
-                            <li><span aria-hidden="true">✔</span> Adaptive Responsive Engine</li>
-                        </ul>
-                        <button onclick="openRequest('Standard')" class="btn">ANFRAGE</button>
-                    </article>
-
-                    <!-- Pro Web (Premium) -->
-                    <article class="card premium">
-                        <div class="card-header">
-                            <span class="badge-top">EMPFEHLUNG</span>
-                            <h3>Pro Web</h3>
-                            <div class="price-tag" aria-label="Preis: 50 Euro">50€</div>
-                        </div>
-                        <ul class="features">
-                            <li><span aria-hidden="true">✔</span> Next-Gen Web-Animationen</li>
-                            <li><span aria-hidden="true">✔</span> Mobile-First Performance-Optimierung</li>
-                            <li><span aria-hidden="true">✔</span> Strategische SEO Foundation</li>
-                        </ul>
-                        <button onclick="openRequest('Pro')" class="btn btn-premium">JETZT BUCHEN</button>
-                    </article>
-
-                    <!-- Premium Web -->
-                    <article class="card premium">
-                        <div class="card-header">
-                            <h3>Premium Web</h3>
-                            <div class="price-tag" aria-label="Preis: 80 Euro">80€</div>
-                        </div>
-                        <ul class="features">
-                            <li><span aria-hidden="true">✔</span> High-End UX/UI Framework</li>
-                            <li><span aria-hidden="true">✔</span> Kuratierte Premium Assets</li>
-                            <li><span aria-hidden="true">✔</span> Core Web Vitals Maximierung</li>
-                        </ul>
-                        <button onclick="openRequest('Premium')" class="btn btn-premium">JETZT BUCHEN</button>
-                    </article>
-
-                    <!-- Ultimate -->
-                    <article class="card">
-                        <div class="card-header">
-                            <h3>Ultimate</h3>
-                            <div class="price-tag" aria-label="Preis: 180 Euro">180€</div>
-                        </div>
-                        <ul class="features">
-                            <li><span aria-hidden="true">✔</span> Skalierbare Backend-Architektur</li>
-                            <li><span aria-hidden="true">✔</span> Komplexe dynamische Formularsysteme</li>
-                            <li><span aria-hidden="true">✔</span> Full Stack Deployment</li>
-                        </ul>
-                        <button onclick="openRequest('Ultimate')" class="btn">SYSTEM BAUEN</button>
-                    </article>
-
-                    <!-- Custom -->
-                    <article class="card custom-dashed">
-                        <div class="card-header">
-                            <h3>Custom</h3>
-                            <div class="price-tag">$$$</div>
-                        </div>
-                        <ul class="features">
-                            <li><span aria-hidden="true">✔</span> Bespoke Solutions (Maßarbeit)</li>
-                            <li><span aria-hidden="true">✔</span> Dedizierter VIP-Prioritäts-Support</li>
-                            <li><span aria-hidden="true">✔</span> Inklusive Strategieberatung</li>
-                        </ul>
-                        <button onclick="openRequest('Custom')" class="btn btn-outline">KONTAKT AUFNEHMEN</button>
-                    </article>
-                </div>
-            </section>
-
-      
-            <!-- Add-ons & Upgrades -->
-            <section class="extras-section" aria-labelledby="extras-title">
-                <h2 class="section-title" id="extras-title">Add-ons & Upgrades fürs Web</h2>
-                <div class="extras-grid">
-                    <div class="extra-item">
-                        <span>Eine Woche für jedes Projekt (auch weniger/mehr)</span>
-                        <span class="extra-badge free">Inklusive</span>
-                    </div>
-                    <div class="extra-item">
-                        <span>Digitaler Projekt-Versand (E-Mail)</span>
-                        <span class="extra-badge free">Inklusive</span>
-                    </div>
-                    <div class="extra-item">
-                        <span>Erweiterte Animations-Layer</span>
-                        <span class="extra-badge">+11€</span>
-                    </div>
-                    <div class="extra-item">
-                        <span>Zusätzliche Unterseite integrieren</span>
-                        <span class="extra-badge">+10€</span>
-                    </div>
-                    <div class="extra-item">
-                        <span>Captcha-Sicherheits-Integration</span>
-                        <span class="extra-badge">gratis</span>
-                    </div>
-                    <div class="extra-item">
-                        <span>Erweitertes Kontakt-Formular-Modul</span>
-                        <span class="extra-badge">+5€</span>
-                    </div>
-                    <div class="extra-item">
-                        <span>Kein Wasserzeichen</span>
-                        <span class="extra-badge">+4€</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Referenzprojekte -->
-            <section class="references-section" aria-labelledby="refs-title">
-                <h2 class="section-title" id="refs-title">Referenzprojekte</h2>
-                <div class="link-grid">
-                    <a href="https://marcel533.github.io/online-code-editor/" target="_blank" rel="noopener noreferrer" class="link-btn">
-                        <span class="link-title">online-code-editor</span>
-                        <span class="link-subtitle">Code editor (projekt von mir und freunden)</span>
-                    </a>
-                    <a href="https://marcel533.github.io/passwort-genarator-und-benutzername/" target="_blank" rel="noopener noreferrer" class="link-btn">
-                        <span class="link-title">SafeGen</span>
-                        <span class="link-subtitle">Security Utility (Frontend)</span>
-                    </a>
-                </div>
-            </section>
-
-            <!-- Social Links -->
-            <section class="social-section" aria-labelledby="social-title">
-                <h2 class="section-title" id="social-title">Digital Connect</h2>
-                <div class="link-grid">
-                    <a href="https://mastodon.social/@diamond8sniper" target="_blank" rel="noopener noreferrer" class="link-btn">
-                        <span class="link-title"> mastodon Main</span>
-                        <span class="link-subtitle">Official mastodon</span>
-                    </a>
-                    <a href="https://twitch.tv/diamond8sniper" target="_blank" rel="noopener noreferrer" class="link-btn">
-                        <span class="link-title">Twitch</span>
-                        <span class="link-subtitle">Live-Entwicklung & Gaming</span>
-                    </a>
-                    <a href="https://open.spotify.com/user/312d7whucgluvn3gek2amylytr4m?si=_sPmQXujQiidpIKIMqA8YA" target="_blank" rel="noopener noreferrer" class="link-btn">
-                        <span class="link-title">Spotify Profile</span>
-                        <span class="link-subtitle">Meine Playlists</span>
-                    </a>
-                </div>
-            </section>
-
-            <!-- Rules -->
-            <section class="rules-section">
-                <div class="rules-dashed">
-                    <h3>Rules</h3>
-                    <ul class="features">
-                        <li><span aria-hidden="true">✔</span> Keine komischen Anforderungen</li>
-                        <li><span aria-hidden="true">✔</span> Keine illegalen Anforderungen (einschließlich Darknet)</li>
-                        <li><span aria-hidden="true">✔</span> Ohne Geldübergabe keine Webseite</li>
-                    </ul>
-                </div>
-            </section>
-
-        </div><!-- /page-home -->
-
-        <!-- ABOUT PAGE -->
-        <div id="page-about" class="page">
-            <section class="inner-page-section">
-                <h2 class="section-title">Über mich</h2>
-                <p class="section-description">Der Mensch hinter dem Code.</p>
-                <div class="about-grid">
-                    <article class="about-card">
-                        <div class="about-avatar">D8</div>
-                        <h3 class="about-name">marcel533</h3>
-                        <p class="about-role">// Full-Stack Developer & Digital Architect</p>
-                        <p class="about-text">
-                            Ich bin ein leidenschaftlicher Entwickler mit Fokus auf modernes Web-Design, 
-                            Frontend-Architektur und digitale Erlebnisse. Mein Ziel: Ideen in 
-                            hochwertige, performante und ästhetische Webprojekte verwandeln.
-                        </p>
-                        <div class="about-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">UI/UX</span>
-                            <span class="tag">root</span>
-                               <span class="tag">Linux</span>
-                        </div>
-                    </article>
-                    <div class="about-stats">
-                        <div class="stat-box">
-                            <div class="stat-number">15+</div>
-                            <div class="stat-label">Projekte</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-number">1+</div>
-                            <div class="stat-label">Jahre Erfahrung</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Einsatz</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-number">∞</div>
-                            <div class="stat-label">Ideen</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Portfolio Website -->
-            <section class="inner-page-section" aria-labelledby="portfolio-title">
-                <h2 class="section-title" id="portfolio-title">Mein Portfolio</h2>
-                <p class="section-description">Meine persönliche Entwickler-Seite — Skills, Fokus & Links auf einen Blick.</p>
-                    <a href="https://marcel533.github.io/Protofolio/" target="_blank" rel="noopener noreferrer" class="btn" style="display:inline-block;margin-top:1rem;">
-                        ↗ Portfolio ansehen
-                    </a>
-                </div>
-            </section>
-        </div><!-- /page-about -->
-
-        <!-- TEAM PAGE -->
-        <div id="page-team" class="page">
-            <section class="inner-page-section">
-                <h2 class="section-title">Das Team</h2>
-                <p class="section-description">Wer steckt hinter marcel533?</p>
-                <div class="team-grid">
-                    <article class="team-card">
-                        <div class="team-avatar">D8</div>
-                        <h3>marcel533</h3>
-                        <p class="team-role">// Founder & Lead Developer</p>
-                        <p class="team-desc">Frontend-Architekt, Designer, Streamer. Verantwortlich für alle Webprojekte und root-Setups.</p>
-                        <div class="team-links">
-                            <a href="https://twitch.tv/diamond8sniper" target="_blank" rel="noopener noreferrer" class="team-link">Twitch</a>
-                            <a href="https://mastodon.social/@diamond8sniper" target="_blank" rel="noopener noreferrer" class="team-link">mastodon</a>
-                        </div>
-                    </article>
-                    <article class="team-card custom-dashed">
-                        <div class="team-avatar ghost">?</div>
-                        <h3>Offene Position</h3>
-                        <p class="team-role">// Du könntest hier stehen</p>
-                        <p class="team-desc">Wir suchen kreative Köpfe. Entwickler, Designer, Content Creator – melde dich!</p>
-                        <div class="team-links">
-         <span> Bewerbung an: 0n0ac395t@mozmail.com</span>
-                        </div>
-                    </article>
-                </div>
-            </section>
-        </div><!-- /page-team -->
-
-        <!-- UPCOMING PAGE -->
-        <div id="page-upcoming" class="page">
-            <section class="inner-page-section">
-                <div class="upcoming-header-banner">
-                    <div class="upcoming-banner-glow"></div>
-                    <div class="upcoming-banner-content">
-                        <span class="upcoming-status-pill">
-                            <span class="upcoming-pulse-dot"></span>
-                            IN ENTWICKLUNG
-                        </span>
-                        <h2 class="section-title upcoming-title">Bevorstehende <span class="upcoming-gradient">Pakete</span></h2>
-                        <p class="section-description upcoming-desc">
-                            Neue Services werden gerade gebaut. Trag dich ein und werde als Erster benachrichtigt.
-                        </p>
-                    </div>
-                </div>
-
-                    <article class="upcoming-card upcoming-placeholder">
-                        <div class="upcoming-card-inner placeholder-inner">
-                            <div class="placeholder-icon" aria-hidden="true">＋</div>
-                            <h3 class="upcoming-card-title placeholder-title">Mehr kommt bald</h3>
-                            <p class="upcoming-card-desc" style="text-align:center; color: var(--text-muted); font-size:0.88rem;">
-                                Weitere Plattformen & Services werden hier erscheinen.<br>
-                                join dem discord für Updates.
-                                <a href="https://discord.gg/5RqSyuZbDq" target="_blank" rel="noopener noreferrer" class="team-link">discord</a>
-                            </p>
-                        </div>
-                        <div class="upcoming-corner tl"></div>
-                        <div class="upcoming-corner tr"></div>
-                        <div class="upcoming-corner bl"></div>
-                        <div class="upcoming-corner br"></div>
-                    </article>
-
-                </div>
-            </section>
-        </div><!-- /page-upcoming -->
-
-        <!-- IMPRESSUM PAGE -->
-        <div id="page-impressum" class="page">
-            <section class="inner-page-section">
-                <h2 class="section-title">Impressum</h2>
-                <p class="section-description">Rechtliche Informationen.</p>
-                <div class="impressum-box">
-                    <div class="impressum-block">
-                        <h4>// Anbieter</h4>
-                        <p>marcel533</p>
-                        <p>Privates Einzelprojekt</p>
-                    </div>
-                    <div class="impressum-block">
-                        <h4>// Kontakt</h4>
-                       <p>discord https://discord.gg/5RqSyuZbDq </p>
-                        <p>E-Mail: <a href="mailto:0n0ac395t@mozmail.com">0n0ac395t@mozmail.com</a></p>
-                  </div>
-                    <div class="impressum-block">
-                        <h4>// Hinweis</h4>
-                        <p>Diese Seite ist ein privates Dienstleistungsangebot. Alle Preise verstehen sich als Nettopreise. Änderungen vorbehalten.</p>
-                    </div>
-                    <div class="impressum-block">
-                        <h4>// Haftungsausschluss</h4>
-                        <p>Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
-                    </div>
-                </div>
-            </section>
-        </div><!-- /page-impressum -->
-
-    </main>
-
-    <!-- Footer Navigation -->
-    <footer class="main-footer" role="contentinfo">
-        <nav class="footer-nav" aria-label="Hauptnavigation">
-            <button class="footer-btn active" onclick="showPage('home', this)" aria-label="Zur Startseite">Home</button>
-            <button class="footer-btn" onclick="showPage('about', this)" aria-label="Über mich">Über mich</button>
-            <button class="footer-btn" onclick="showPage('team', this)" aria-label="Team">Team</button>
-            <button class="footer-btn" onclick="showPage('upcoming', this)" aria-label="Bevorstehende Pakete">Bevorstehende Pakete</button>
-            <button class="footer-btn" onclick="showPage('impressum', this)" aria-label="Impressum">Impressum</button>
-            <a href="https://discord.gg/5RqSyuZbDq" target="_blank" rel="noopener noreferrer" class="footer-btn footer-btn-discord" aria-label="Discord Server">⌁ Discord</a>
-        </nav>
-        <div class="footer-divider"></div>
-        <div class="footer-bottom">
-            <p class="footer-copy">&copy; 2026 <span>marcel533</span></p>
-            <p class="footer-tag">// ARCHITECTING BEYOND LIMITS</p>
+<!-- Header -->
+<header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl" role="banner">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+        <div>
+            <h1 class="font-head text-xl font-black tracking-wider text-white sm:text-2xl">marcel<span class="text-cyan-400">533</span></h1>
+            <p class="hidden text-[10px] tracking-[0.25em] text-slate-500 sm:block" data-i18n="subtitle"></p>
         </div>
-    </footer>
-
-    <!-- Modal -->
-    <div id="modalOverlay" class="modal-overlay" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
-        <div class="modal-box">
-            <h3 class="modal-title" id="modal-title">Projekt-Anfrage bestätigen</h3>
-
-<div class="captcha-widget" id="captchaWidget">
-    <div class="captcha-inner" id="captchaInner" onclick="captchaClick()">
-        <span class="captcha-checkbox" id="captchaCheckbox"></span>
-        <span class="captcha-label" id="captchaLabel">Ich bin kein Roboter</span>
-        <span class="captcha-spinner" id="captchaSpinner"></span>
-        <span class="captcha-check" id="captchaCheck" aria-hidden="true">✔</span>
+        <button id="langToggle" onclick="toggleLang()" class="flex overflow-hidden rounded-full border border-white/15 text-xs font-bold" aria-label="Sprache wechseln / Switch language">
+            <span data-lang-opt="de" class="px-3 py-1.5 transition">DE</span>
+            <span data-lang-opt="en" class="px-3 py-1.5 transition">EN</span>
+        </button>
     </div>
-    <div class="captcha-brand">
-        <span class="captcha-brand-icon">🛡</span>
-        <span class="captcha-brand-text">marcel533<br><span class="captcha-brand-sub">Security</span></span>
+    <nav class="mx-auto flex max-w-6xl gap-1 overflow-x-auto px-4 pb-2 text-sm" aria-label="Navigation">
+        <button class="footer-btn active whitespace-nowrap rounded-lg px-3 py-1.5 text-slate-300 transition hover:text-white" onclick="showPage('home', this)" data-i18n="home"></button>
+        <button class="footer-btn whitespace-nowrap rounded-lg px-3 py-1.5 text-slate-300 transition hover:text-white" onclick="showPage('about', this)" data-i18n="about"></button>
+        <button class="footer-btn whitespace-nowrap rounded-lg px-3 py-1.5 text-slate-300 transition hover:text-white" onclick="showPage('team', this)" data-i18n="team"></button>
+        <button class="footer-btn whitespace-nowrap rounded-lg px-3 py-1.5 text-slate-300 transition hover:text-white" onclick="showPage('upcoming', this)" data-i18n="upcoming"></button>
+        <button class="footer-btn whitespace-nowrap rounded-lg px-3 py-1.5 text-slate-300 transition hover:text-white" onclick="showPage('impressum', this)" data-i18n="impressum"></button>
+        <a href="https://discord.gg/5RqSyuZbDq" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap rounded-lg px-3 py-1.5 text-indigo-300 transition hover:text-indigo-200">⌁ Discord</a>
+    </nav>
+</header>
+
+<main class="mx-auto max-w-6xl px-4 py-10" role="main">
+
+    <!-- HOME -->
+    <div id="page-home" class="page active space-y-14">
+        <section>
+            <h2 class="font-head text-2xl font-bold text-white" data-i18n="pricingTitle"></h2>
+            <p class="mb-8 mt-2 text-slate-400" data-i18n="pricingDesc"></p>
+            <div id="pkgGrid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+        </section>
+        <section>
+            <h2 class="mb-6 font-head text-2xl font-bold text-white" data-i18n="extrasTitle"></h2>
+            <div id="extrasGrid" class="grid gap-3 md:grid-cols-2"></div>
+        </section>
+        <section>
+            <h2 class="mb-6 font-head text-2xl font-bold text-white" data-i18n="refsTitle"></h2>
+            <div id="refsGrid" class="grid gap-4 sm:grid-cols-2"></div>
+        </section>
+        <section>
+            <h2 class="mb-6 font-head text-2xl font-bold text-white" data-i18n="socialTitle"></h2>
+            <div id="socialGrid" class="grid gap-4 sm:grid-cols-3"></div>
+        </section>
+        <section class="rounded-2xl border border-dashed border-white/20 p-6">
+            <h3 class="mb-3 font-head text-lg font-bold text-white" data-i18n="rulesTitle"></h3>
+            <ul id="rulesList" class="space-y-2"></ul>
+        </section>
+    </div>
+
+    <!-- ABOUT -->
+    <div id="page-about" class="page space-y-12">
+        <section>
+            <h2 class="font-head text-2xl font-bold text-white" data-i18n="aboutTitle"></h2>
+            <p class="mb-8 mt-2 text-slate-400" data-i18n="aboutDesc"></p>
+            <div class="grid gap-6 md:grid-cols-[2fr_1fr]">
+                <article class="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+                    <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 to-fuchsia-500 font-head font-black text-slate-950">M5</div>
+                    <h3 class="font-head text-xl font-bold text-white">marcel533</h3>
+                    <p class="mb-3 font-mono text-sm text-cyan-300" data-i18n="aboutRole"></p>
+                    <p class="text-slate-300" data-i18n="aboutText"></p>
+                    <div class="mt-5 flex flex-wrap gap-2 text-xs">
+                        <span class="rounded-full bg-white/10 px-3 py-1">HTML</span><span class="rounded-full bg-white/10 px-3 py-1">CSS</span><span class="rounded-full bg-white/10 px-3 py-1">JavaScript</span><span class="rounded-full bg-white/10 px-3 py-1">UI/UX</span><span class="rounded-full bg-white/10 px-3 py-1">root</span><span class="rounded-full bg-white/10 px-3 py-1">Linux</span>
+                    </div>
+                </article>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-center"><div class="font-head text-2xl font-black text-cyan-300">15+</div><div class="mt-1 text-xs text-slate-400" data-i18n="statProjects"></div></div>
+                    <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-center"><div class="font-head text-2xl font-black text-cyan-300">1+</div><div class="mt-1 text-xs text-slate-400" data-i18n="statYears"></div></div>
+                    <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-center"><div class="font-head text-2xl font-black text-cyan-300">100%</div><div class="mt-1 text-xs text-slate-400" data-i18n="statEffort"></div></div>
+                    <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-center"><div class="font-head text-2xl font-black text-cyan-300">∞</div><div class="mt-1 text-xs text-slate-400" data-i18n="statIdeas"></div></div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 class="font-head text-2xl font-bold text-white" data-i18n="portfolioTitle"></h2>
+            <p class="mt-2 text-slate-400" data-i18n="portfolioDesc"></p>
+            <a href="https://marcel533.github.io/Protofolio/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block rounded-xl bg-gradient-to-r from-cyan-400 to-fuchsia-500 px-5 py-3 text-sm font-bold text-slate-950" data-i18n="portfolioBtn"></a>
+        </section>
+    </div>
+
+    <!-- TEAM -->
+    <div id="page-team" class="page">
+        <h2 class="font-head text-2xl font-bold text-white" data-i18n="teamTitle"></h2>
+        <p class="mb-8 mt-2 text-slate-400" data-i18n="teamDesc"></p>
+        <div class="grid gap-6 md:grid-cols-2">
+            <article class="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+                <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 to-fuchsia-500 font-head font-black text-slate-950">M5</div>
+                <h3 class="font-head text-lg font-bold text-white">marcel533</h3>
+                <p class="mb-2 font-mono text-sm text-cyan-300" data-i18n="founderRole"></p>
+                <p class="text-sm text-slate-300" data-i18n="founderDesc"></p>
+                <div class="mt-4 flex gap-4 text-sm">
+                    <a href="https://twitch.tv/diamond8sniper" target="_blank" rel="noopener noreferrer" class="text-cyan-300 hover:underline">Twitch</a>
+                    <a href="https://mastodon.social/@diamond8sniper" target="_blank" rel="noopener noreferrer" class="text-cyan-300 hover:underline">Mastodon</a>
+                </div>
+            </article>
+            <article class="rounded-2xl border border-dashed border-white/20 p-6">
+                <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-dashed border-white/30 font-head text-slate-500">?</div>
+                <h3 class="font-head text-lg font-bold text-white" data-i18n="openTitle"></h3>
+                <p class="mb-2 font-mono text-sm text-cyan-300" data-i18n="openRole"></p>
+                <p class="text-sm text-slate-300" data-i18n="openDesc"></p>
+                <p class="mt-4 text-sm text-slate-400"><span data-i18n="apply"></span> 0n0ac395t@mozmail.com</p>
+            </article>
+        </div>
+    </div>
+
+    <!-- UPCOMING -->
+    <div id="page-upcoming" class="page">
+        <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-cyan-400/10 to-fuchsia-500/10 p-8 text-center">
+            <span class="inline-flex items-center gap-2 rounded-full border border-amber-400/40 px-3 py-1 text-xs font-bold tracking-widest text-amber-300"><span class="h-2 w-2 animate-pulse rounded-full bg-amber-400"></span><span data-i18n="inDev"></span></span>
+            <h2 class="mt-4 font-head text-3xl font-black text-white" data-i18n-html="upTitle"></h2>
+            <p class="mx-auto mt-3 max-w-xl text-slate-400" data-i18n="upDesc"></p>
+        </div>
+        <article class="mx-auto mt-8 max-w-md rounded-2xl border border-dashed border-white/20 p-8 text-center">
+            <div class="mb-2 text-3xl text-slate-500" aria-hidden="true">＋</div>
+            <h3 class="font-head text-lg font-bold text-white" data-i18n="moreTitle"></h3>
+            <p class="mt-2 text-sm text-slate-400"><span data-i18n="moreDesc"></span> <a href="https://discord.gg/5RqSyuZbDq" target="_blank" rel="noopener noreferrer" class="text-indigo-300 underline">Discord</a></p>
+        </article>
+    </div>
+
+    <!-- IMPRESSUM -->
+    <div id="page-impressum" class="page">
+        <h2 class="font-head text-2xl font-bold text-white" data-i18n="impTitle"></h2>
+        <p class="mb-8 mt-2 text-slate-400" data-i18n="impDesc"></p>
+        <div class="space-y-4 rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-sm text-slate-300">
+            <div><h4 class="mb-1 font-mono text-cyan-300" data-i18n="impProvider"></h4><p>marcel533</p><p data-i18n="impPrivate"></p></div>
+            <div><h4 class="mb-1 font-mono text-cyan-300" data-i18n="impContact"></h4><p>Discord: <a href="https://discord.gg/5RqSyuZbDq" target="_blank" rel="noopener noreferrer" class="text-indigo-300 underline">https://discord.gg/5RqSyuZbDq</a></p><p>E-Mail: <a href="mailto:0n0ac395t@mozmail.com" class="text-cyan-300 underline">0n0ac395t@mozmail.com</a></p></div>
+            <div><h4 class="mb-1 font-mono text-cyan-300" data-i18n="impNote"></h4><p data-i18n="impNoteText"></p></div>
+            <div><h4 class="mb-1 font-mono text-cyan-300" data-i18n="impLiab"></h4><p data-i18n="impLiabText"></p></div>
+        </div>
+    </div>
+</main>
+
+<footer class="border-t border-white/10 py-6 text-center text-xs text-slate-500" role="contentinfo">
+    <p>&copy; 2026 <span class="text-slate-300">marcel533</span> &nbsp;·&nbsp; // ARCHITECTING BEYOND LIMITS</p>
+</footer>
+
+<!-- Modal (Captcha) -->
+<div id="modalOverlay" class="fixed inset-0 z-[9999] items-center justify-center bg-black/80 p-4 backdrop-blur-md" role="dialog" aria-labelledby="modal-title" aria-hidden="true" style="display:none;">
+    <div class="w-full max-w-md space-y-4 rounded-2xl border border-white/10 bg-slate-900 p-6">
+        <h3 class="font-head text-lg font-bold text-white" id="modal-title" data-i18n="modalTitle"></h3>
+        <div id="captchaWidget" class="flex items-center justify-between rounded-xl border border-white/10 bg-black/30 p-3">
+            <div class="flex cursor-pointer items-center gap-3" id="captchaInner" onclick="captchaClick()">
+                <span class="captcha-checkbox" id="captchaCheckbox"></span>
+                <span class="text-sm" id="captchaLabel" data-i18n="captcha"></span>
+                <span class="captcha-spinner" id="captchaSpinner"></span>
+                <span class="captcha-check" id="captchaCheck" aria-hidden="true">✔</span>
+            </div>
+            <div class="text-right text-[10px] text-slate-500">🛡 marcel533<br>Security</div>
+        </div>
+        <button id="finalCopyBtn" class="disabled w-full rounded-xl bg-gradient-to-r from-cyan-400 to-fuchsia-500 px-4 py-3 text-xs font-bold tracking-widest text-slate-950" onclick="copyEmail()" data-i18n="send"></button>
+        <p id="packageInfo" class="text-center text-xs text-slate-400"></p>
+        <button class="w-full text-xs text-slate-400 hover:text-white" onclick="closeModal()" data-i18n="modalClose"></button>
     </div>
 </div>
-            <button id="finalCopyBtn" class="btn disabled" onclick="copyEmail()">ANFRAGE ABSENDEN</button>
-            <p id="packageInfo" class="modal-package-info"></p>
-            <button class="modal-close-btn" onclick="closeModal()" aria-label="Modal schließen">✕ SCHLIESSEN</button>
+
+<!-- Wartungs-Popup (beim Laden sichtbar) -->
+<div id="site-maintenance-popup" class="fixed inset-0 z-[20000] flex items-center justify-center bg-black/85 p-4 backdrop-blur-md" role="dialog" aria-modal="true" aria-labelledby="site-maintenance-title">
+    <div class="w-full max-w-md space-y-4 rounded-2xl border border-amber-400/40 bg-slate-900 p-8 text-center shadow-[0_0_60px_-15px_rgba(251,191,36,.4)]">
+        <div class="animate-pulse text-5xl" aria-hidden="true">🚧</div>
+        <h2 id="site-maintenance-title" class="font-head text-2xl font-bold text-white" data-i18n="siteMTitle"></h2>
+        <p class="text-slate-400" data-i18n-html="siteMText"></p>
+        <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+            <a href="https://discord.gg/5RqSyuZbDq" target="_blank" rel="noopener noreferrer" class="flex-1 rounded-xl bg-[#5865F2] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#4752c4]">⌁ Discord</a>
+            <a href="https://github.com/marcel533" target="_blank" rel="noopener noreferrer" class="flex-1 rounded-xl border border-white/20 bg-slate-800 px-4 py-3 text-sm font-bold text-white transition hover:bg-slate-700">GitHub</a>
         </div>
     </div>
+</div>
 
-    <!-- Wartungs-Popup (beim Laden sichtbar) -->
-    <div id="site-maintenance-popup" class="popup-overlay maintenance-overlay site-maintenance-overlay" role="dialog" aria-modal="true" aria-labelledby="site-maintenance-title">
-        <div class="popup-content maintenance-box">
-            <div class="maintenance-icon" aria-hidden="true">🚧</div>
-            <h2 id="site-maintenance-title" class="maintenance-title">Wartungsarbeiten</h2>
-            <p class="maintenance-text">Das Projekt ist für <span class="maintenance-highlight">unbestimmte Zeit</span> in Wartungsarbeiten.</p>
-            <div class="maintenance-btn-row">
-                <a href="https://discord.gg/5RqSyuZbDq" target="_blank" rel="noopener noreferrer" class="btn maintenance-discord-btn">⌁ Discord</a>
-                <a href="https://github.com/marcel533" target="_blank" rel="noopener noreferrer" class="btn maintenance-github-btn">GitHub</a>
-            </div>
-        </div>
+<!-- Kauf deaktiviert -->
+<div id="maintenance-popup" class="fixed inset-0 z-[10000] items-center justify-center bg-black/80 p-4 backdrop-blur-md" role="dialog" aria-labelledby="maintenance-title" aria-hidden="true" style="display:none;">
+    <div class="w-full max-w-md space-y-4 rounded-2xl border border-amber-400/40 bg-slate-900 p-8 text-center">
+        <div class="text-5xl" aria-hidden="true">🚧</div>
+        <h2 id="maintenance-title" class="font-head text-xl font-bold text-white" data-i18n="mTitle"></h2>
+        <p class="text-slate-400" data-i18n-html="mText"></p>
+        <p class="text-sm text-slate-500" data-i18n="mSub"></p>
+        <a href="https://discord.gg/5RqSyuZbDq" target="_blank" rel="noopener noreferrer" class="block rounded-xl bg-[#5865F2] px-4 py-3 text-sm font-bold text-white hover:bg-[#4752c4]" data-i18n="mDiscord"></a>
+        <button class="w-full text-sm text-slate-400 hover:text-white" onclick="closeMaintenance()" data-i18n="close"></button>
     </div>
+</div>
 
-    <!-- Maintenance Popup -->
-    <div id="maintenance-popup" class="popup-overlay maintenance-overlay" role="dialog" aria-labelledby="maintenance-title" style="display:none;">
-        <div class="popup-content maintenance-box">
-            <div class="maintenance-icon" aria-hidden="true">🚧</div>
-            <h2 id="maintenance-title" class="maintenance-title">Kauffunktion deaktiviert</h2>
-            <p class="maintenance-text">Die Kauffunktion ist gerade <span class="maintenance-highlight">temporär deaktiviert</span>.</p>
-            <p class="maintenance-sub">Mehr Infos und Updates gibt es direkt auf unserem Discord-Server.</p>
-            <a href="https://discord.gg/5RqSyuZbDq" target="_blank" rel="noopener noreferrer" class="btn maintenance-discord-btn">
-                ⌁ Zum Discord-Server
-            </a>
-            <button class="close-btn maintenance-close-btn" onclick="closeMaintenance()">✕ Schließen</button>
-        </div>
-    </div>
-
-    <!-- AGB Popup -->
-    <div id="agb-popup" class="popup-overlay" role="dialog" aria-labelledby="agb-title" style="display:none;">
-        <div class="popup-content">
-            <h2 id="agb-title">Fast geschafft! 🚀</h2>
-            <p>Bitte lies und bestätige unsere Bedingungen, bevor du den Kauf abschließt.</p>
-            
-            <div class="scroll-box">
+<!-- AGB Popup -->
+<div id="agb-popup" class="fixed inset-0 z-[9999] items-center justify-center bg-black/80 p-4 backdrop-blur-md" role="dialog" aria-labelledby="agb-title" aria-hidden="true" style="display:none;">
+    <div class="w-full max-w-lg space-y-4 rounded-2xl border border-white/10 bg-slate-900 p-6">
+        <h2 id="agb-title" class="font-head text-xl font-bold text-white" data-i18n="agbTitle"></h2>
+        <p class="text-sm text-slate-400" data-i18n="agbIntro"></p>
+        <p class="text-xs italic text-slate-500" data-i18n="agbNote"></p>
+        <div class="max-h-56 space-y-2 overflow-y-auto rounded-xl border border-white/10 bg-black/30 p-4 text-xs leading-relaxed text-slate-300 [&_h4]:mt-3 [&_h4]:font-bold [&_h4]:text-cyan-300 [&_ul]:list-disc [&_ul]:pl-5">
                 <h4>§ X. Zulässige Inhalte und Bestellbeschränkungen</h4>
                 <p><strong>(1) Was darf bestellt werden?</strong> Wir erstellen Webseiten für legale Geschäftszwecke, private Portfolios, Blogs und Online-Shops.</p>
                 <p><strong>(2) Was ist verboten?</strong> Es ist streng untersagt, Webseiten mit Inhalten zu bestellen oder über unsere Vorlagen zu betreiben, die:</p>
@@ -450,18 +222,16 @@
                 </ul>
                 <p><strong>(3) Rechtliche Verantwortung:</strong> Der Kunde ist nach der Übergabe allein dafür verantwortlich, die Webseite rechtssicher zu betreiben (z. B. korrektes Impressum, Datenschutzerklärung gemäß DSGVO, Cookie-Banner). Wir führen keine Rechtsberatung durch und haften nicht für Abmahnungen, die aus einer fehlerhaften rechtlichen Gestaltung der Webseite durch den Kunden resultieren.</p>
             </div>
-            <div class="checkbox-wrapper">
-                <input type="checkbox" id="agb-checkbox">
-                <label for="agb-checkbox">
-                    Ich habe die oben stehenden Bedingungen (insbesondere zu Inhalten und Haftung) sowie die <a href="/wiederruf" target="_blank" rel="noopener noreferrer">Widerrufsbelehrung</a> gelesen und akzeptiere diese.
-                </label>
-            </div>
-            
-            <button id="buy-submit-button" disabled>Zahlungspflichtig bestellen</button>
-            <button id="close-popup-btn" class="close-btn">Abbrechen</button>
+        <div class="flex items-start gap-3 text-xs text-slate-300">
+            <input type="checkbox" id="agb-checkbox" class="mt-0.5 h-4 w-4 accent-cyan-400">
+            <label for="agb-checkbox" data-i18n-html="agbCheck"></label>
         </div>
+        <button id="buy-submit-button" disabled class="w-full rounded-xl bg-gradient-to-r from-cyan-400 to-fuchsia-500 px-4 py-3 text-sm font-bold text-slate-950 disabled:cursor-not-allowed disabled:opacity-40" data-i18n="agbBuy"></button>
+        <button id="close-popup-btn" class="w-full text-sm text-slate-400 hover:text-white" data-i18n="agbCancel"></button>
     </div>
+</div>
 
-    <script src="script.js"></script>
+<script src="i18n.js"></script>
+<script src="script.js"></script>
 </body>
-    </html>
+</html>

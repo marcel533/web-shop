@@ -130,7 +130,7 @@ function doCopyEmail() {
             // Show feedback
             if (finalBtn) {
                 const originalText = finalBtn.innerText;
-                finalBtn.innerText = '✓ E-MAIL KOPIERT!';
+                finalBtn.innerText = (typeof t === 'function') ? t('copied') : '✓ E-MAIL KOPIERT!';
                 finalBtn.style.background = '#00ff88';
                 finalBtn.style.color = '#000';
 
