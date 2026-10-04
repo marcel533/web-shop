@@ -2123,3 +2123,45 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-muted, #aaa);
     line-height: 1.6;
    }
+
+
+/* ════════════════════════════════════
+   SITE MAINTENANCE POPUP (Seitenstart)
+════════════════════════════════════ */
+
+.site-maintenance-overlay {
+    z-index: 20000;
+}
+
+.maintenance-btn-row {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.maintenance-btn-row .btn {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+}
+
+.maintenance-github-btn {
+    background: #24292f;
+    border-color: #444c56;
+    color: #fff;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+}
+
+.maintenance-github-btn:hover:not(.disabled) {
+    background: #32383f;
+    border-color: #6e7681;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 480px) {
+    .maintenance-btn-row {
+        flex-direction: column;
+    }
+}
